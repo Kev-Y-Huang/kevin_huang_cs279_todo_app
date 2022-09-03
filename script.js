@@ -44,6 +44,8 @@ function showTodo(filter) {
   if (todos) {
     todos.forEach((todo, id) => {
       let completed = todo.status == "completed" ? "checked" : "";
+
+      // Add task elements if they match the current active filter
       if (filter == todo.status || filter == "all") {
         liTag += `<li class="task">
                     <label for="${id}">
@@ -58,7 +60,7 @@ function showTodo(filter) {
       }
     });
   }
-  
+
   taskBox.innerHTML = liTag || `<span>No tasks currently</span>`;
 
   // Update attributes based on current number of tasks
